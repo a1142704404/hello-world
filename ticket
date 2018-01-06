@@ -1,0 +1,31 @@
+class Person:   #大人
+    def __init__(self,x):
+        self.old = x
+
+class Child:    #小孩
+    def __init__(self,x):
+        self.young = x
+
+class Price:    #票价，如果不是周末，票价为100，周末120
+    def __init__(self,x):
+        self.num = x
+        if self.num == 'weekend':
+            self.num = 120
+        else:
+            self.num = 100
+        
+
+class Ticket:   #将大人，小孩，票价的数据传入该类
+    def __init__(self,x=0,y=0,z='unweekend'): #初始值分别是0人，0人，以及平日
+        self.person = Person(x)
+        self.child = Child(y)
+        self.price = Price(z)
+        
+        
+    
+
+    def print_exp(self): #按大人全价，小孩半价的规则计算出总价
+        print('大人有%d人' % self.person.old)
+        print('小孩有%d人' % self.child.young)
+        print('需要门票钱%.2f' % (self.price.num *self.person.old \
+                             + self.price.num * self.child.young * 0.5))
